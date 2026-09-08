@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIAN T — Editor de Video</title>
+<meta name="description" content="Sian T — Editor de video especializado en Creadores de Contenido, Marcas y formato vertical (TikTok / Instagram).">
+
+<!-- EDITAR AQUÍ: tu ícono de pestaña (favicon). Sube el archivo a la carpeta "images/" -->
+<link rel="icon" type="image/png" href="images/favicon.png?=2">
+
+<!--
+  ============================================================
+  GUÍA RÁPIDA DE EDICIÓN
+  ============================================================
+  1. VIDEOS DE "MIS TRABAJOS": tienen DOS partes.
+     a) data-yt="TU_ID_DE_VIDEO" → el video que se reproduce CON sonido
+        al hacer click (usa YouTube). Cambia también el ID dentro del
+        src de la miniatura (.../vi/TU_ID/hqdefault.jpg).
+     b) <video class="preview"><source src="videos/..."> → un clip corto
+        y sin sonido que se reproduce al pasar el mouse (opcional, pero
+        recomendado). Reemplaza el archivo por tu propio clip liviano.
+     El ID de YouTube es lo que va después de "v=" en la URL, por ejemplo:
+     https://www.youtube.com/watch?v=dQw4w9WgXcQ  →  ID = dQw4w9WgXcQ
+     Sube tus videos como "Oculto" (Unlisted) en YouTube Studio para
+     que no aparezcan en búsquedas pero sí se puedan reproducir aquí.
+  2. TEXTOS: todo el copy está directamente en el HTML, en español,
+     listo para reemplazar.
+  3. COLORES: están definidos como variables dentro de :root en
+     styles.css. Cambia los valores hex y se actualiza todo el sitio.
+  4. CONTACTO: busca "EDITAR CONTACTO" para poner tu Instagram y correo reales.
+  ============================================================
+-->
+ 
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+ 
+<div class="grid-bg"></div>
+<div class="glow" style="position:fixed; z-index:0;"></div>
+ 
+<header id="siteHeader">
+  <div class="wrap">
+    <nav>
+      <a href="#" class="logo">
+        <!-- EDITAR AQUÍ: reemplaza por tu foto de perfil -->
+        <img src="images/icon.png" alt="Sian T" class="avatar" onerror="this.style.display='none'">
+        <!-- EDITAR AQUÍ: el puntito morado. Puedes dejarlo como está, o reemplazarlo
+             por tu ícono/logo con: <img src="images/icono.png" class="dot-icon"> -->
+        SIAN T </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#trabajos">Trabajos</a>
+        <a href="#sobre">Sobre mí</a>
+        <a href="#contacto">Contacto</a>
+        <a href="mailto:tucorreo@ejemplo.com" class="nav-cta">Hablemos</a>
+      </div>
+      <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+    </nav>
+  </div>
+</header>
+ 
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="glow"></div>
+
+  <!-- EDITAR AQUÍ: Clips flotantes del hero (loop, sin sonido) -->
+  <div class="hero-float hf-v hf-1">
+    <video muted loop playsinline preload="metadata">
+      <source src="videos/hero-v-3.mp4" type="video/mp4">
+    </video>
+    <div class="f-thumb"><span>Clip vertical<br>(reemplazar)</span></div>
+  </div>
+
+  <div class="hero-float hf-v hf-2">
+    <video muted loop playsinline preload="metadata">
+      <source src="videos/hero-v-1.mp4" type="video/mp4">
+    </video>
+    <div class="f-thumb"><span>Clip vertical<br>(reemplazar)</span></div>
+  </div>
+
+  <div class="hero-float hf-v hf-3">
+    <video muted loop playsinline preload="metadata">
+      <source src="videos/hero-v-2.mp4" type="video/mp4">
+    </video>
+    <div class="f-thumb"><span>Clip vertical<br>(reemplazar)</span></div>
+  </div>
+
+  <div class="hero-float hf-v hf-4">
+    <video muted loop playsinline preload="metadata">
+      <source src="videos/hero-v-4.mp4" type="video/mp4">
+    </video>
+    <div class="f-thumb"><span>Clip vertical<br>(reemplazar)</span></div>
+  </div>
+
+  <!-- Texto inicial: se agrupa para poder ocultarlo/mostrarlo al scrollear -->
+  <div class="hero-copy" id="heroCopy">
+    <div class="eyebrow">Editor de Video & Director Creativo</div>
+    <h1 class="wordmark">SIAN T</h1>
+    <p class="hero-sub">
+      Edición dinámica para <b>Creadores de Contenido</b> y <b>Marcas</b> 
+    </p>
+    <div class="hero-ctas">
+      <a href="#trabajos" class="btn btn-primary">Ver trabajos</a>
+      <a href="#contacto" class="btn btn-ghost">Contáctame</a>
+    </div>
+    <div class="scroll-cue"><span>Scroll</span><div class="line"></div></div>
+  </div>
+</section>
+
+<!-- ================= MARQUESINA DE CLIPS ================= -->
+<section id="marquesina">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 data-tw>Técnicas & Recursos</h2>
+    </div>
+  </div>
+
+  <div class="marquee-viewport">
+    <div class="marquee-track" id="marqueeTrack">
+      <!-- EDITAR AQUÍ: 10 clips de la marquesina (se duplican por JS para el loop infinito) -->
+
+      <div class="clip-pill">
+        <video muted loop playsinline preload="metadata"><source src="videos/clip-01.mp4" type="video/mp4"></video>
+        <div class="cp-thumb"><span>Clip 1</span></div>
+        <div class="clip-badge"><span class="c-style">Apple Motion Style</span><span class="c-tool">After Effects</span></div>
+      </div>
+
+      <div class="clip-pill">
+        <video muted loop playsinline preload="metadata"><source src="videos/clip-02.mp4" type="video/mp4"></video>
+        <div class="cp-thumb"><span>Clip 2</span></div>
+        <div class="clip-badge"><span class="c-style">Texto Animado</span><span class="c-tool">After Effects</span></div>
+      </div>
+
+      <div class="clip-pill">
+        <video muted loop playsinline preload="metadata"><source src="videos/clip-03.mp4" type="video/mp4"></video>
+        <div class="cp-thumb"><span>Clip 3</span></div>
+        <div class="clip-badge"><span class="c-style">Product Animation</span><span class="c-tool">After Effects</span></div>
+      </div>
+
+      <div class="clip-pill">
+        <video muted loop playsinline preload="metadata"><source src="videos/clip-04.mp4" type="video/mp4"></video>
+        <div class="cp-thumb"><span>Clip 4</span></div>
+        <div class="clip-badge"><span class="c-style">Parallax Animation</span><span class="c-tool">After Effects</span></div>
+      </div>
+
+      <div class="clip-pill">
+        <video muted loop playsinline preload="metadata"><source src="videos/clip-05.mp4" type="video/mp4"></video>
+        <div class="cp-thumb"><span>Clip 5</span></div>
+        <div class="clip-badge"><span class="c-style">Clips Gaming</span><span class="c-tool">Premiere Pro</span></div>
+      </div>
+
+      <div class="clip-pill">
+        <video muted loop playsinline preload="metadata"><source src="videos/clip-06.mp4" type="video/mp4"></video>
+        <div class="cp-thumb"><span>Clip 6</span></div>
+        <div class="clip-badge"><span class="c-style">Podcast Clips</span><span class="c-tool">Premiere Pro</span></div>
+      </div>
+
+      <div class="clip-pill">
+        <video muted loop playsinline preload="metadata"><source src="videos/clip-07.mp4" type="video/mp4"></video>
+        <div class="cp-thumb"><span>Clip 7</span></div>
+        <div class="clip-badge"><span class="c-style">Animaciones 2D</span><span class="c-tool">After Effects</span></div>
+      </div>
+
+      <div class="clip-pill">
+        <video muted loop playsinline preload="metadata"><source src="videos/clip-08.mp4" type="video/mp4"></video>
+        <div class="cp-thumb"><span>Clip 8</span></div>
+        <div class="clip-badge"><span class="c-style">Animated Background</span><span class="c-tool">After Effects</span></div>
+      </div>
+
+      <div class="clip-pill">
+        <video muted loop playsinline preload="metadata"><source src="videos/clip-09.mp4" type="video/mp4"></video>
+        <div class="cp-thumb"><span>Clip 9</span></div>
+        <div class="clip-badge"><span class="c-style">Camera Tracking</span><span class="c-tool">After Effects</span></div>
+      </div>
+
+      <div class="clip-pill">
+        <video muted loop playsinline preload="metadata"><source src="videos/clip-10.mp4" type="video/mp4"></video>
+        <div class="cp-thumb"><span>Clip 10</span></div>
+        <div class="clip-badge"><span class="c-style">Screen Overlay</span><span class="c-tool">Premiere Pro</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRABAJOS ================= -->
+<section id="trabajos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 data-tw>Mis Trabajos</h2>
+      <p>Una selección de proyectos recientes en formato vertical.</p>
+    </div>
+
+    <!-- VERTICAL -->
+    <div class="format-block reveal">
+      <div class="grid-v">
+ 
+        <!-- EDITAR AQUÍ: Video vertical 1 -->
+        <div class="card v" data-yt="rwRBBaMZOsU" data-orientation="v">
+          <img class="thumb" src="https://youtube.com/shorts/rwRBBaMZOsU?feature=share" alt="Clip Viral" loading="lazy">
+          <video class="preview" muted loop playsinline preload="metadata">
+            <source src="videos/vertical-1.mp4" type="video/mp4">
+          </video>
+          <div class="sound-hint">🔊 Click para reproducir con sonido</div>
+          <div class="play-btn"></div>
+          <div class="card-caption">Clip Viral</div>
+        </div>
+
+        <!-- EDITAR AQUÍ: Video vertical 2 -->
+        <div class="card v" data-yt="jzu3sxp31BQ" data-orientation="v">
+          <img class="thumb" src="https://youtube.com/shorts/jzu3sxp31BQ?feature=share" alt="Reel de Marca" loading="lazy">
+          <video class="preview" muted loop playsinline preload="metadata">
+            <source src="videos/vertical-2.mp4" type="video/mp4">
+          </video>
+          <div class="sound-hint">🔊 Click para reproducir con sonido</div>
+          <div class="play-btn"></div>
+          <div class="card-caption">Reel de Podcast</div>
+        </div>
+
+        <!-- EDITAR AQUÍ: Video vertical 3 -->
+        <div class="card v" data-yt="QSQUZNpOKIk" data-orientation="v">
+          <img class="thumb" src="https://youtube.com/shorts/QSQUZNpOKIk?feature=share" alt="Short de Streamer" loading="lazy">
+          <video class="preview" muted loop playsinline preload="metadata">
+            <source src="videos/vertical-3.mp4" type="video/mp4">
+          </video>
+          <div class="sound-hint">🔊 Click para reproducir con sonido</div>
+          <div class="play-btn"></div>
+          <div class="card-caption">Motion Graphics</div>
+        </div>
+
+        <!-- EDITAR AQUÍ: Video vertical 4 -->
+        <div class="card v" data-yt="sXFpAcRA0e4" data-orientation="v">
+          <img class="thumb" src="https://youtube.com/shorts/sXFpAcRA0e4?feature=share" alt="Reemplazar título" loading="lazy">
+          <video class="preview" muted loop playsinline preload="metadata">
+            <source src="videos/vertical-4.mp4" type="video/mp4">
+          </video>
+          <div class="sound-hint">🔊 Click para reproducir con sonido</div>
+          <div class="play-btn"></div>
+          <div class="card-caption">Reel dinámico</div>
+        </div>
+
+        <!-- EDITAR AQUÍ: Video vertical 5 -->
+        <div class="card v" data-yt="y8To0KLjkqE" data-orientation="v">
+          <img class="thumb" src="https://youtube.com/shorts/y8To0KLjkqE?si=iKXGWzajhuWW6XOC" alt="Reemplazar título" loading="lazy">
+          <video class="preview" muted loop playsinline preload="metadata">
+            <source src="videos/vertical-5.mp4" type="video/mp4">
+          </video>
+          <div class="sound-hint">🔊 Click para reproducir con sonido</div>
+          <div class="play-btn"></div>
+          <div class="card-caption">Short de Contenido Educativo</div>
+        </div>
+
+        <!-- EDITAR AQUÍ: Video vertical 6 -->
+        <div class="card v" data-yt="TU_ID_AQUI" data-orientation="v">
+          <img class="thumb" src="https://youtube.com/shorts/TU_ID_AQUI?feature=share" alt="Reemplazar título" loading="lazy">
+          <video class="preview" muted loop playsinline preload="metadata">
+            <source src="videos/vertical-6.mp4" type="video/mp4">
+          </video>
+          <div class="sound-hint">🔊 Click para reproducir con sonido</div>
+          <div class="play-btn"></div>
+          <div class="card-caption">ADS</div>
+        </div>
+ 
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ================= SOBRE MÍ ================= -->
+<section id="sobre">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p class="format-label" style="margin-bottom:14px;" data-tw><span class="pill"></span>Sobre mí</p>
+        <p>El objetivo de un buen video no es solo verse bien: <b>es hacer que la gente se quede hasta el final</b>.</p>
+        <p>Me llamo <b>Santiago (SianT)</b>, y combino ritmo, narrativa visual y diseño de sonido para llevar el contenido de <b>Creadores de Contenido</b> y <b>Marcas</b> al siguiente nivel, tanto en formato largo como en <b>TikTok e Instagram</b>.</p>
+        <div class="tags">
+          <span class="tag">Premiere Pro</span>
+          <span class="tag">After Effects</span>
+          <span class="tag">DaVinci Resolve</span>
+          <span class="tag">Sound Design</span>
+          <span class="tag">Motion Graphics</span>
+        </div>
+      </div>
+      <div class="stat-col reveal">
+        <!-- EDITAR: cambia estas cifras por las tuyas reales -->
+        <div class="stat"><div class="num">+100</div><div class="label">Videos editados</div></div>
+        <div class="stat"><div class="num">3</div><div class="label">Formatos dominados: Contenido Orgánico, Performance ADS, Marca Personal</div></div>
+        <div class="stat"><div class="num">24h</div><div class="label">Tiempo de respuesta promedio</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACTO ================= -->
+<section id="contacto">
+  <div class="glow"></div>
+  <div class="wrap">
+    <p class="eyebrow reveal" data-tw>Disponible para proyectos</p>
+    <h2 class="reveal" data-tw>Hagamos que tu próximo video <br>sea imposible de ignorar.</h2>
+    <p class="lead reveal">Escríbeme por Instagram, X o correo y cuéntame sobre tu proyecto.</p>
+
+    <div class="contact-row reveal">
+      <!-- EDITAR CONTACTO: Instagram -->
+      <a href="https://instagram.com/sian_t__" target="_blank" class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke="white" stroke-width="1.7"/>
+            <circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.7"/>
+            <circle cx="17.2" cy="6.8" r="1.1" fill="white"/>
+          </svg>
+        </div>
+        <div class="contact-meta">
+          <div class="k">Instagram</div>
+          <div class="v">@sian_t__</div>
+        </div>
+      </a>
+
+      <!-- EDITAR CONTACTO: Twitter / X -->
+      <a href="https://x.com/siant_vfx" target="_blank" class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </div>
+        <div class="contact-meta">
+          <div class="k">Twitter (X)</div>
+          <div class="v">@siant_vfx</div>
+        </div>
+      </a>
+
+      <!-- EDITAR CONTACTO: Correo -->
+      <a href="mailto:tucorreo@ejemplo.com" class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="5" width="18" height="14" rx="3" stroke="white" stroke-width="1.7"/>
+            <path d="M4 7l8 6 8-6" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="contact-meta">
+          <div class="k">Correo</div>
+          <div class="v">contact.scastaneda@gmail.com</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px; width:100%;">
+    <span class="f-logo">SIAN T</span>
+    <div class="f-links">
+      <a href="#trabajos">Trabajos</a>
+      <a href="#sobre">Sobre mí</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <span class="f-meta">© 2026 Sian T. Todos los derechos reservados.</span>
+  </div>
+</footer>
+
+<!-- MODAL: reproduce el video de "Mis Trabajos" desde YouTube, con sonido -->
+<div class="video-modal" id="videoModal">
+  <div class="video-modal-inner" id="videoModalInner">
+    <button class="modal-close" id="modalClose" aria-label="Cerrar">&times;</button>
+    <div class="modal-player" id="modalPlayer"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
